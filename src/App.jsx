@@ -334,66 +334,7 @@ const artworksDatabase = {
     anecdote: 'Les masques Sénoufo sont encore utilisés aujourd\'hui dans les cérémonies du Poro, société secrète d\'initiation.',
     offlineAvailable: true
   },
-  'QR007': {
-    id: 'QR007',
-    title: 'Peinture Sous-Verre',
-    artist: 'Gora Mbengue',
-    year: '1980',
-    location: 'Salle 5 - Art Sénégalais Moderne',
-    image: 'https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=400&q=80',
-    description: 'Technique traditionnelle sénégalaise de peinture sous-verre (suweer), représentant des scènes de la vie quotidienne et des figures religieuses avec des couleurs vives.',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Peinture sous-verre, 50 × 40 cm',
-    category: 'Peinture',
-    period: 'Art Moderne',
-    anecdote: 'La peinture sous-verre est devenue populaire au Sénégal au XIXe siècle, introduite par les commerçants arabes.',
-    offlineAvailable: true
-  },
-  'QR008': {
-    id: 'QR008',
-    title: 'Bronze du Bénin',
-    artist: 'Artisan Edo',
-    year: 'XVIe-XVIIe siècle',
-    location: 'Salle 6 - Bronzes Historiques',
-    image: 'https://images.unsplash.com/photo-1567696153798-72f6a0a7b174?w=400&q=80',
-    description: 'Plaque en bronze du royaume du Bénin (actuel Nigeria), représentant des guerriers ou des dignitaires de la cour royale. Chef-d\'œuvre de la métallurgie africaine.',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Bronze coulé à la cire perdue, 45 × 35 cm',
-    category: 'Sculpture',
-    period: 'Art Ancien',
-    anecdote: 'Des milliers de bronzes du Bénin ont été pillés en 1897 et sont dispersés dans les musées occidentaux.',
-    offlineAvailable: false
-  },
-  'QR009': {
-    id: 'QR009',
-    title: 'Batik Africain',
-    artist: 'Artisan contemporain',
-    year: '2020',
-    location: 'Salle 2 - Textiles Africains',
-    image: 'https://images.unsplash.com/photo-1566206091558-7f218b696731?w=400&q=80',
-    description: 'Tissu batik contemporain avec des motifs géométriques et symboliques africains. Technique de teinture par réserve de cire créant des motifs complexes.',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Coton teint, 180 × 100 cm',
-    category: 'Textile',
-    period: 'Art Contemporain',
-    anecdote: 'Le batik africain combine des techniques indonésiennes adoptées et des motifs traditionnels africains.',
-    offlineAvailable: true
-  },
-  'QR010': {
-    id: 'QR010',
-    title: 'Sculpture Contemporaine',
-    artist: 'Ousmane Sow',
-    year: '1999',
-    location: 'Salle 7 - Art Contemporain',
-    image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400&q=80',
-    description: 'Sculpture monumentale de l\'artiste sénégalais Ousmane Sow, représentant un guerrier Massaï. Mélange de tradition et de modernité dans l\'art africain.',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Technique mixte, 220 cm',
-    category: 'Sculpture',
-    period: 'Art Contemporain',
-    anecdote: 'Ousmane Sow fut le premier artiste africain élu à l\'Académie des Beaux-Arts de France en 2013.',
-    offlineAvailable: true
-  }
+
 };
 
 const App = () => {
@@ -471,7 +412,7 @@ const [showVideoModal, setShowVideoModal] = useState(false);
       artwork: 'QR003'
     }
   ];
-   useEffect(() => {
+  useEffect(() => {
     const offline = Object.values(artworksDatabase).filter(art => art.offlineAvailable);
     setOfflineContent(offline);
   }, []);
@@ -1208,7 +1149,8 @@ const [showVideoModal, setShowVideoModal] = useState(false);
     </div>
   );
    const GamesView = () => (
-    <div className={`${bgClass} p-6 pb-24`}>
+    <div className="bg-[#d9c7a1] p-6 pb-24">
+      
       <h1 className={`text-2xl font-bold mb-6 ${textClass}`}>{t.games}</h1>
       
       <div className={`${cardClass} rounded-xl p-4 mb-6`}>
@@ -1226,7 +1168,7 @@ const [showVideoModal, setShowVideoModal] = useState(false);
           <div className="text-5xl mb-3">🎯</div>
           <h3 className={`font-bold mb-2 ${textClass}`}>{t.quiz}</h3>
           <button className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm">
-            {t.play}
+           Jouer {t.play}
           </button>
         </div>
 
@@ -1234,7 +1176,7 @@ const [showVideoModal, setShowVideoModal] = useState(false);
           <div className="text-5xl mb-3">🧠</div>
           <h3 className={`font-bold mb-2 ${textClass}`}>{t.memoryGame}</h3>
           <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">
-            {t.play}
+          Jouer  {t.play}
           </button>
         </div>
 
@@ -1242,7 +1184,7 @@ const [showVideoModal, setShowVideoModal] = useState(false);
           <div className="text-5xl mb-3">🗺️</div>
           <h3 className={`font-bold mb-2 ${textClass}`}>{t.treasureHunt}</h3>
           <button className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm">
-            {t.play}
+           Jouer {t.play}
           </button>
         </div>
       </div>

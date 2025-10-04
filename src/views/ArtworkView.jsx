@@ -1,8 +1,101 @@
+import React from 'react';
+
+// const ArtworkView = ({ selectedArtwork, cardClass, textClass }) => (
+//   <div className="p-6 pb-24">
+//     {selectedArtwork ? (
+//       <div className={`${cardClass} rounded-xl shadow-sm p-6`}>
+//         <img src={selectedArtwork.image} alt={selectedArtwork.title} className="w-full h-64 object-cover rounded-lg mb-4" />
+//         <h2 className={`text-2xl font-bold ${textClass}`}>{selectedArtwork.title}</h2>
+//         <p className="text-gray-600 dark:text-gray-400">{selectedArtwork.artist}</p>
+//       </div>
+//     ) : (
+//       <p>Aucune œuvre sélectionnée</p>
+//     )}
+//   </div>
+// );
  // Vue Détail d'une œuvre (améliorée)
   const ArtworkView = () => {
     if (!selectedArtwork) return null;
     const artworkComments = comments[selectedArtwork.id] || [];
     const similarWorks = getSimilarArtworks(selectedArtwork);
+    // Fonction Text-to-Speech pour lire la description
+    const speakDescription = () => {
+      if ('speechSynthesis' in window) {
+        // Arrêter la lecture en cours
+        if (isPlaying) {
+          window.speechSynthesis.cancel();
+          setIsPlaying(false);
+          return;
+        }
+
+        // Créer une nouvelle synthèse vocale
+        const utterance = new SpeechSynthesisUtterance();
+        
+        // Texte à lire : titre + artiste + description + anecdote
+        const textToSpeak = `
+          ${selectedArtwork.title}, 
+          par ${selectedArtwork.artist}, 
+          réalisée en ${selectedArtwork.year}. 
+          ${selectedArtwork.description}
+          Le saviez-vous ? ${selectedArtwork.anecdote}
+        `;
+        
+        utterance.text = textToSpeak;
+        utterance.lang = 'fr-FR'; // Langue française
+        utterance.rate = 0.9; // Vitesse de lecture
+        utterance.pitch = 1; // Tonalité
+        utterance.volume = audioVolume;
+
+        // Événements
+        utterance.onstart = () => {
+          setIsPlaying(true);
+          // addNotification('success', 'Lecture audio', 'Le guide audio a démarré');
+        };
+
+        utterance.onend = () => {
+          setIsPlaying(false);
+        };
+
+        utterance.onerror = () => {
+          setIsPlaying(false);
+          // addNotification('error', 'Erreur', 'Impossible de lire le guide audio');
+        };
+
+        window.speechSynthesis.speak(utterance);
+      } else {
+        addNotification('error', 'Non supporté', 'Votre navigateur ne supporte pas la synthèse vocale');
+      }
+    };
+
+      // Contrôle du volume
+      const handleVolumeChange = (e) => {
+        const newVolume = parseFloat(e.target.value);
+        setAudioVolume(newVolume);
+        
+        if (window.speechSynthesis.speaking) {
+          window.speechSynthesis.cancel();
+          setTimeout(() => speakDescription(), 100);
+        }
+      };
+
+      // Muet/Activer le son
+      const toggleMute = () => {
+        setIsMuted(!isMuted);
+        setAudioVolume(isMuted ? 1 : 0);
+      };
+
+      // Lecture vidéo (simulation)
+     // Lecture vidéo réelle
+      const handleVideoPlay = () => {
+        setShowVideoModal(true);
+        setIsVideoPlaying(true);
+        addNotification('info', 'Vidéo', 'Ouverture de la vidéo...');
+      };
+
+      const closeVideo = () => {
+        setShowVideoModal(false);
+        setIsVideoPlaying(false);
+      };
 
     return (
       <div className={`${bgClass} pb-20`}>
@@ -64,20 +157,56 @@
           </div>
 
           <div className="grid grid-cols-2 gap-3">
+            {/* Contrôles Audio/Vidéo améliorés */}
+        {/* <div className="space-y-3"> */}
+          {/* Bouton Audio Guide avec Text-to-Speech */}
+          <div className={`${cardClass} rounded-xl p-2`}>
             <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              className="bg-purple-600 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-purple-700 transition"
+              onClick={speakDescription}
+              className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition ${
+                isPlaying 
+                  ? 'bg-red-600 hover:bg-red-700 text-white' 
+                  : 'bg-purple-600 hover:bg-purple-700 text-white'
+              }`}
             >
-              <Volume2 size={20} />
-              {isPlaying ? t.pauseAudio : t.audioGuide}
+              {isPlaying ? <Pause size={20} /> : <Volume2 size={20} />}
+              {isPlaying ? 'Arrêter le guide' : 'le guide audio'}
             </button>
+
+            {/* Contrôle du volume */}
+            {isPlaying && (
+              <div className="mt-3 flex items-center gap-3">
+                <button onClick={toggleMute} className="text-gray-600 dark:text-gray-400">
+                  {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                </button>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={audioVolume}
+                  onChange={handleVolumeChange}
+                  className="flex-1"
+                />
+                <span className="text-xs text-gray-500">{Math.round(audioVolume * 100)}%</span>
+              </div>
+            )}
+          </div>
+
+            {/* Bouton Vidéo */}
+            <div className={`${cardClass} rounded-xl p-2`}>
             <button
-              onClick={() => addNotification('info', 'Vidéo', 'Lecture de la vidéo...')}
-              className="bg-indigo-600 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-indigo-700 transition"
+              onClick={handleVideoPlay}
+              className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition ${
+                isVideoPlaying
+                  ? 'bg-red-600 hover:bg-red-700 text-white'
+                  : 'bg-indigo-600 hover:bg-indigo-700 text-white'
+              }`}
             >
-              <Play size={20} />
-              {t.video}
+              {isVideoPlaying ? <Pause size={20} /> : <Play size={20} />}
+              {isVideoPlaying ? 'Arrêter la vidéo' : 'Voir la vidéo'}
             </button>
+            </div>
           </div>
 
           <div className={`${cardClass} rounded-xl p-4 shadow-sm`}>
@@ -200,92 +329,62 @@
             <Share2 size={20} />
             {t.share}
           </button>
+          {/* Modal Vidéo */}
+{showVideoModal && selectedArtwork && (
+  <div className="fixed inset-0 bg-black/90 z-50 flex flex-col">
+    <div className="bg-black/80 text-white p-4 flex items-center justify-between">
+      <h2 className="text-xl font-bold">📹 Vidéo - {selectedArtwork.title}</h2>
+      <button
+        onClick={closeVideo}
+        className="p-2 hover:bg-white/10 rounded-lg transition"
+      >
+        <X size={24} />
+      </button>
+    </div>
+
+    <div className="flex-1 flex items-center justify-center p-4">
+      <div className="w-full max-w-4xl">
+        {/* Vidéo YouTube (exemple) */}
+        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full rounded-lg"
+            src={`https://www.youtube.com/embed/${getYouTubeId(selectedArtwork.videoUrl)}?autoplay=1`}
+            title={selectedArtwork.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+
+        {/* OU si vous avez des vidéos en local/serveur */}
+        {/* 
+        <video
+          className="w-full rounded-lg"
+          controls
+          autoPlay
+          poster={selectedArtwork.image}
+        >
+          <source src={selectedArtwork.videoUrl} type="video/mp4" />
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+        */}
+      </div>
+    </div>
+
+    <div className="bg-black/80 text-white p-6 text-center">
+      <p className="text-gray-300 mb-4">{selectedArtwork.description}</p>
+      <button
+        onClick={closeVideo}
+        className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition"
+      >
+        Fermer la vidéo
+      </button>
+    </div>
+  </div>
+)}
         </div>
       </div>
     );
   };
 
-  // Vue Galerie/Recherche (améliorée avec filtres)
-  const GalleryView = () => (
-    <div className={`${bgClass} p-6 pb-24`}>
-      <h1 className={`text-2xl font-bold mb-4 ${textClass}`}>{t.gallery}</h1>
-      
-      <div className="mb-4">
-        <div className="relative mb-3">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-          <input
-            type="text"
-            placeholder={t.searchPlaceholder}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className={`w-full pl-10 pr-4 py-3 border-2 ${borderClass} rounded-lg focus:border-purple-500 focus:outline-none ${darkMode ? 'bg-gray-800 text-white' : 'bg-white'}`}
-          />
-        </div>
-        
-        {/* Filtres par catégorie */}
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          <button
-            onClick={() => setCategoryFilter('all')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition ${
-              categoryFilter === 'all' 
-                ? 'bg-purple-600 text-white' 
-                : `${cardClass} ${textClass}`
-            }`}
-          >
-            {t.all}
-          </button>
-          <button
-            onClick={() => setCategoryFilter('Peinture')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition ${
-              categoryFilter === 'Peinture' 
-                ? 'bg-purple-600 text-white' 
-                : `${cardClass} ${textClass}`
-            }`}
-          >
-            {t.paintings}
-          </button>
-          <button
-            onClick={() => setCategoryFilter('Sculpture')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition ${
-              categoryFilter === 'Sculpture' 
-                ? 'bg-purple-600 text-white' 
-                : `${cardClass} ${textClass}`
-            }`}
-          >
-            {t.sculptures}
-          </button>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-4">
-        {filteredArtworks.map((artwork) => (
-          <div
-            key={artwork.id}
-            onClick={() => {
-              setSelectedArtwork(artwork);
-              setCurrentView('artwork');
-            }}
-            className={`${cardClass} rounded-xl shadow-sm overflow-hidden cursor-pointer hover:shadow-lg transition`}
-          >
-            <div className="relative">
-              <img
-                src={artwork.image}
-                alt={artwork.title}
-                className="w-full h-40 object-cover"
-              />
-              {artwork.offlineAvailable && (
-                <div className="absolute top-2 right-2 bg-green-500 text-white p-1 rounded-full">
-                  <Download size={14} />
-                </div>
-              )}
-            </div>
-            <div className="p-3">
-              <h3 className={`font-bold text-sm truncate ${textClass}`}>{artwork.title}</h3>
-              <p className="text-xs text-gray-600 dark:text-gray-400 truncate">{artwork.artist}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{artwork.year}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+export default ArtworkView;

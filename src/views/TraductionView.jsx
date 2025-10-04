@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Traductions étendues
 const translations = {
   fr: {
@@ -47,7 +49,7 @@ const translations = {
     aboutTitle: 'À propos de l\'application',
     aboutVersion: 'Version',
     aboutDescription: 'Description',
-    aboutDescText: 'Musée Digital est une application innovante qui transforme votre visite au musée en une expérience interactive et enrichissante.',
+    aboutDescText: 'Musée des Civilisations Noires est une application innovante qui transforme votre visite en une expérience interactive et immersive, vous permettant de découvrir l’art, l’histoire et le patrimoine des civilisations noires.',
     aboutFeatures: 'Fonctionnalités',
     aboutContact: 'Contact',
     aboutDevelopedBy: 'Développé avec ❤️ pour l\'art et la culture',
@@ -123,7 +125,7 @@ const translations = {
     aboutTitle: 'About the app',
     aboutVersion: 'Version',
     aboutDescription: 'Description',
-    aboutDescText: 'Digital Museum is an innovative app that transforms your museum visit into an interactive and enriching experience.',
+    aboutDescText: 'The Museum of Black Civilizations is an innovative app that turns your visit into an interactive and immersive experience, allowing you to explore the art, history, and heritage of Black civilizations.',
     aboutFeatures: 'Features',
     aboutContact: 'Contact',
     aboutDevelopedBy: 'Developed with ❤️ for art and culture',
@@ -199,7 +201,7 @@ const translations = {
     aboutTitle: 'Ci mbir application bi',
     aboutVersion: 'Version',
     aboutDescription: 'Melokaan',
-    aboutDescText: 'Musée Digital dafa am teknoloji bu bees ngir defal sa gëstu ci musée ci kanam bu am njariñ.',
+    aboutDescText: 'Musée des Civilisations Noires mooy app bu bees bi, buñ tënk njàngale gi ci ay mbind mi, te di yéewal say xel ci lëf, téere ak njaaylu ci dund yi Afrik yi.',
     aboutFeatures: 'Fonctionnalités',
     aboutContact: 'Contact',
     aboutDevelopedBy: 'Defar ak ❤️ ngir art ak culture',
@@ -232,6 +234,7 @@ const translations = {
 
 // Base de données simulée des œuvres (conservée)
 const artworksDatabase = {
+  
   'QR001': {
     id: 'QR001',
     title: 'La Nuit Étoilée',
@@ -241,14 +244,16 @@ const artworksDatabase = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/300px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
     description: 'Cette œuvre majeure représente la vue depuis la fenêtre de la chambre de Van Gogh à l\'asile de Saint-Rémy-de-Provence. Le ciel tourbillonnant contraste avec le village paisible en contrebas.',
     audioUrl: 'https://example.com/audio/qr001.mp3',
-    videoUrl: 'https://example.com/video/qr001.mp4',
+    // videoUrl: 'https://example.com/video/qr001.mp4',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+
     details: 'Huile sur toile, 73.7 × 92.1 cm',
     category: 'Peinture',
     period: 'Post-impressionnisme',
     anecdote: 'Van Gogh a peint cette œuvre de mémoire pendant la journée, car il n\'avait pas le droit de peindre dans sa chambre la nuit.',
     offlineAvailable: true
   },
-  'QR002': {
+   'QR002': {
     id: 'QR002',
     title: 'La Joconde',
     artist: 'Léonard de Vinci',
@@ -257,27 +262,136 @@ const artworksDatabase = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/300px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
     description: 'Portrait de Lisa Gherardini, épouse de Francesco del Giocondo. Célèbre pour son sourire énigmatique et la technique du sfumato.',
     audioUrl: 'https://example.com/audio/qr002.mp3',
-    videoUrl: 'https://example.com/video/qr002.mp4',
+     videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Huile sur panneau de peuplier, 77 × 53 cm',
     category: 'Peinture',
     period: 'Renaissance',
     anecdote: 'Le tableau a été volé en 1911 par un employé italien du Louvre et retrouvé deux ans plus tard.',
     offlineAvailable: true
   },
+
   'QR003': {
     id: 'QR003',
-    title: 'Le Penseur',
-    artist: 'Auguste Rodin',
-    year: '1880-1882',
-    location: 'Jardin des Sculptures',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/The_Thinker_Musee_Rodin.jpg/300px-The_Thinker_Musee_Rodin.jpg',
-    description: 'Sculpture en bronze représentant un homme nu en position assise, plongé dans une profonde réflexion. Initialement conçue pour La Porte de l\'Enfer.',
-    audioUrl: 'https://example.com/audio/qr003.mp3',
-    videoUrl: 'https://example.com/video/qr003.mp4',
-    details: 'Bronze, 180 × 98 × 145 cm',
+    title: 'Tissu Kente',
+    artist: 'Tisserands Ashanti',
+    year: 'Contemporain',
+    location: 'Salle 2 - Textiles Africains',
+    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=400&q=80',
+    description: 'Tissu traditionnel Kente du Ghana, tissé à la main avec des motifs géométriques colorés. Chaque couleur et motif possède une signification symbolique.',
+    audioUrl: 'https://example.com/audio/qr002.mp3',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+    details: 'Coton et soie tissés, 200 × 120 cm',
+    category: 'Textile',
+    period: 'Art Contemporain',
+    anecdote: 'Le Kente était autrefois réservé à la royauté Ashanti. Nelson Mandela en portait lors de sa libération.',
+    offlineAvailable: true
+  },
+  'QR004': {
+    id: 'QR004',
+    title: 'Masque Dan',
+    artist: 'Artisan Dan',
+    year: 'XXe siècle',
+    location: 'Salle 3 - Masques Sacrés',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80',
+    description: 'Masque de la culture Dan de Côte d\'Ivoire et Liberia. Visage harmonieux aux traits fins, incarnant la beauté idéale et servant de médiation entre les humains et les esprits.',
+     audioUrl: 'https://example.com/audio/qr004.mp3',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+    details: 'Bois, fibres végétales, 30 × 20 cm',
     category: 'Sculpture',
-    period: 'Moderne',
-    anecdote: 'À l\'origine, la sculpture devait représenter Dante contemplant les cercles de l\'Enfer.',
+    period: 'Art Traditionnel',
+    anecdote: 'Les masques Dan sont classés en deux catégories : masculins (angulaires) et féminins (ovales).',
+    offlineAvailable: true
+  },
+  'QR005': {
+    id: 'QR005',
+    title: 'Trône Bamiléké',
+    artist: 'Sculpteur Bamiléké',
+    year: 'XIXe siècle',
+    location: 'Salle 4 - Objets Royaux',
+    image: 'https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=400&q=80',
+    description: 'Trône royal du peuple Bamiléké du Cameroun, richement sculpté avec des motifs représentant des figures ancestrales, symboles de pouvoir et de légitimité.',
+    audioUrl: 'https://example.com/audio/qr005.mp3',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+    details: 'Bois massif sculpté, perles, 85 × 60 cm',
+    category: 'Mobilier',
+    period: 'Art Royal',
+    anecdote: 'Seul le roi (Fon) et ses invités de marque pouvaient s\'asseoir sur ces trônes sacrés.',
     offlineAvailable: false
+  },
+   'QR006': {
+    id: 'QR006',
+    title: 'Masque Sénoufo',
+    artist: 'Artisan Sénoufo',
+    year: 'XIXe siècle',
+    location: 'Salle 1 - Arts Traditionnels',
+    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&q=80',
+    description: 'Masque cérémoniel traditionnel de la culture Sénoufo, utilisé lors des rituels d\'initiation. Représente les esprits ancestraux et la connexion avec le monde spirituel.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+    details: 'Bois sculpté, pigments naturels, 45 × 25 cm',
+    category: 'Sculpture',
+    period: 'Art Traditionnel',
+    anecdote: 'Les masques Sénoufo sont encore utilisés aujourd\'hui dans les cérémonies du Poro, société secrète d\'initiation.',
+    offlineAvailable: true
+  },
+  'QR007': {
+    id: 'QR007',
+    title: 'Peinture Sous-Verre',
+    artist: 'Gora Mbengue',
+    year: '1980',
+    location: 'Salle 5 - Art Sénégalais Moderne',
+    image: 'https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=400&q=80',
+    description: 'Technique traditionnelle sénégalaise de peinture sous-verre (suweer), représentant des scènes de la vie quotidienne et des figures religieuses avec des couleurs vives.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+    details: 'Peinture sous-verre, 50 × 40 cm',
+    category: 'Peinture',
+    period: 'Art Moderne',
+    anecdote: 'La peinture sous-verre est devenue populaire au Sénégal au XIXe siècle, introduite par les commerçants arabes.',
+    offlineAvailable: true
+  },
+  'QR008': {
+    id: 'QR008',
+    title: 'Bronze du Bénin',
+    artist: 'Artisan Edo',
+    year: 'XVIe-XVIIe siècle',
+    location: 'Salle 6 - Bronzes Historiques',
+    image: 'https://images.unsplash.com/photo-1567696153798-72f6a0a7b174?w=400&q=80',
+    description: 'Plaque en bronze du royaume du Bénin (actuel Nigeria), représentant des guerriers ou des dignitaires de la cour royale. Chef-d\'œuvre de la métallurgie africaine.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+    details: 'Bronze coulé à la cire perdue, 45 × 35 cm',
+    category: 'Sculpture',
+    period: 'Art Ancien',
+    anecdote: 'Des milliers de bronzes du Bénin ont été pillés en 1897 et sont dispersés dans les musées occidentaux.',
+    offlineAvailable: false
+  },
+  'QR009': {
+    id: 'QR009',
+    title: 'Batik Africain',
+    artist: 'Artisan contemporain',
+    year: '2020',
+    location: 'Salle 2 - Textiles Africains',
+    image: 'https://images.unsplash.com/photo-1566206091558-7f218b696731?w=400&q=80',
+    description: 'Tissu batik contemporain avec des motifs géométriques et symboliques africains. Technique de teinture par réserve de cire créant des motifs complexes.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+    details: 'Coton teint, 180 × 100 cm',
+    category: 'Textile',
+    period: 'Art Contemporain',
+    anecdote: 'Le batik africain combine des techniques indonésiennes adoptées et des motifs traditionnels africains.',
+    offlineAvailable: true
+  },
+  'QR010': {
+    id: 'QR010',
+    title: 'Sculpture Contemporaine',
+    artist: 'Ousmane Sow',
+    year: '1999',
+    location: 'Salle 7 - Art Contemporain',
+    image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400&q=80',
+    description: 'Sculpture monumentale de l\'artiste sénégalais Ousmane Sow, représentant un guerrier Massaï. Mélange de tradition et de modernité dans l\'art africain.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+    details: 'Technique mixte, 220 cm',
+    category: 'Sculpture',
+    period: 'Art Contemporain',
+    anecdote: 'Ousmane Sow fut le premier artiste africain élu à l\'Académie des Beaux-Arts de France en 2013.',
+    offlineAvailable: true
   }
 };
+export default QuizView;
