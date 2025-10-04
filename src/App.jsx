@@ -235,6 +235,7 @@ const translations = {
 
 // Base de données simulée des œuvres (conservée)
 const artworksDatabase = {
+  
   'QR001': {
     id: 'QR001',
     title: 'La Nuit Étoilée',
@@ -251,7 +252,7 @@ const artworksDatabase = {
     anecdote: 'Van Gogh a peint cette œuvre de mémoire pendant la journée, car il n\'avait pas le droit de peindre dans sa chambre la nuit.',
     offlineAvailable: true
   },
-  'QR002': {
+   'QR002': {
     id: 'QR002',
     title: 'La Joconde',
     artist: 'Léonard de Vinci',
@@ -267,21 +268,118 @@ const artworksDatabase = {
     anecdote: 'Le tableau a été volé en 1911 par un employé italien du Louvre et retrouvé deux ans plus tard.',
     offlineAvailable: true
   },
+
   'QR003': {
     id: 'QR003',
-    title: 'Le Penseur',
-    artist: 'Auguste Rodin',
-    year: '1880-1882',
-    location: 'Jardin des Sculptures',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/The_Thinker_Musee_Rodin.jpg/300px-The_Thinker_Musee_Rodin.jpg',
-    description: 'Sculpture en bronze représentant un homme nu en position assise, plongé dans une profonde réflexion. Initialement conçue pour La Porte de l\'Enfer.',
-    audioUrl: 'https://example.com/audio/qr003.mp3',
-    videoUrl: 'https://example.com/video/qr003.mp4',
-    details: 'Bronze, 180 × 98 × 145 cm',
+    title: 'Tissu Kente',
+    artist: 'Tisserands Ashanti',
+    year: 'Contemporain',
+    location: 'Salle 2 - Textiles Africains',
+    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=400&q=80',
+    description: 'Tissu traditionnel Kente du Ghana, tissé à la main avec des motifs géométriques colorés. Chaque couleur et motif possède une signification symbolique.',
+    details: 'Coton et soie tissés, 200 × 120 cm',
+    category: 'Textile',
+    period: 'Art Contemporain',
+    anecdote: 'Le Kente était autrefois réservé à la royauté Ashanti. Nelson Mandela en portait lors de sa libération.',
+    offlineAvailable: true
+  },
+  'QR004': {
+    id: 'QR004',
+    title: 'Masque Dan',
+    artist: 'Artisan Dan',
+    year: 'XXe siècle',
+    location: 'Salle 3 - Masques Sacrés',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80',
+    description: 'Masque de la culture Dan de Côte d\'Ivoire et Liberia. Visage harmonieux aux traits fins, incarnant la beauté idéale et servant de médiation entre les humains et les esprits.',
+    details: 'Bois, fibres végétales, 30 × 20 cm',
     category: 'Sculpture',
-    period: 'Moderne',
-    anecdote: 'À l\'origine, la sculpture devait représenter Dante contemplant les cercles de l\'Enfer.',
+    period: 'Art Traditionnel',
+    anecdote: 'Les masques Dan sont classés en deux catégories : masculins (angulaires) et féminins (ovales).',
+    offlineAvailable: true
+  },
+  'QR005': {
+    id: 'QR005',
+    title: 'Trône Bamiléké',
+    artist: 'Sculpteur Bamiléké',
+    year: 'XIXe siècle',
+    location: 'Salle 4 - Objets Royaux',
+    image: 'https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=400&q=80',
+    description: 'Trône royal du peuple Bamiléké du Cameroun, richement sculpté avec des motifs représentant des figures ancestrales, symboles de pouvoir et de légitimité.',
+    details: 'Bois massif sculpté, perles, 85 × 60 cm',
+    category: 'Mobilier',
+    period: 'Art Royal',
+    anecdote: 'Seul le roi (Fon) et ses invités de marque pouvaient s\'asseoir sur ces trônes sacrés.',
     offlineAvailable: false
+  },
+   'QR006': {
+    id: 'QR006',
+    title: 'Masque Sénoufo',
+    artist: 'Artisan Sénoufo',
+    year: 'XIXe siècle',
+    location: 'Salle 1 - Arts Traditionnels',
+    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&q=80',
+    description: 'Masque cérémoniel traditionnel de la culture Sénoufo, utilisé lors des rituels d\'initiation. Représente les esprits ancestraux et la connexion avec le monde spirituel.',
+    details: 'Bois sculpté, pigments naturels, 45 × 25 cm',
+    category: 'Sculpture',
+    period: 'Art Traditionnel',
+    anecdote: 'Les masques Sénoufo sont encore utilisés aujourd\'hui dans les cérémonies du Poro, société secrète d\'initiation.',
+    offlineAvailable: true
+  },
+  'QR007': {
+    id: 'QR007',
+    title: 'Peinture Sous-Verre',
+    artist: 'Gora Mbengue',
+    year: '1980',
+    location: 'Salle 5 - Art Sénégalais Moderne',
+    image: 'https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=400&q=80',
+    description: 'Technique traditionnelle sénégalaise de peinture sous-verre (suweer), représentant des scènes de la vie quotidienne et des figures religieuses avec des couleurs vives.',
+    details: 'Peinture sous-verre, 50 × 40 cm',
+    category: 'Peinture',
+    period: 'Art Moderne',
+    anecdote: 'La peinture sous-verre est devenue populaire au Sénégal au XIXe siècle, introduite par les commerçants arabes.',
+    offlineAvailable: true
+  },
+  'QR008': {
+    id: 'QR008',
+    title: 'Bronze du Bénin',
+    artist: 'Artisan Edo',
+    year: 'XVIe-XVIIe siècle',
+    location: 'Salle 6 - Bronzes Historiques',
+    image: 'https://images.unsplash.com/photo-1567696153798-72f6a0a7b174?w=400&q=80',
+    description: 'Plaque en bronze du royaume du Bénin (actuel Nigeria), représentant des guerriers ou des dignitaires de la cour royale. Chef-d\'œuvre de la métallurgie africaine.',
+    details: 'Bronze coulé à la cire perdue, 45 × 35 cm',
+    category: 'Sculpture',
+    period: 'Art Ancien',
+    anecdote: 'Des milliers de bronzes du Bénin ont été pillés en 1897 et sont dispersés dans les musées occidentaux.',
+    offlineAvailable: false
+  },
+  'QR009': {
+    id: 'QR009',
+    title: 'Batik Africain',
+    artist: 'Artisan contemporain',
+    year: '2020',
+    location: 'Salle 2 - Textiles Africains',
+    image: 'https://images.unsplash.com/photo-1566206091558-7f218b696731?w=400&q=80',
+    description: 'Tissu batik contemporain avec des motifs géométriques et symboliques africains. Technique de teinture par réserve de cire créant des motifs complexes.',
+    details: 'Coton teint, 180 × 100 cm',
+    category: 'Textile',
+    period: 'Art Contemporain',
+    anecdote: 'Le batik africain combine des techniques indonésiennes adoptées et des motifs traditionnels africains.',
+    offlineAvailable: true
+  },
+  'QR010': {
+    id: 'QR010',
+    title: 'Sculpture Contemporaine',
+    artist: 'Ousmane Sow',
+    year: '1999',
+    location: 'Salle 7 - Art Contemporain',
+    image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400&q=80',
+    description: 'Sculpture monumentale de l\'artiste sénégalais Ousmane Sow, représentant un guerrier Massaï. Mélange de tradition et de modernité dans l\'art africain.',
+    details: 'Technique mixte, 220 cm',
+    category: 'Sculpture',
+    period: 'Art Contemporain',
+    anecdote: 'Ousmane Sow fut le premier artiste africain élu à l\'Académie des Beaux-Arts de France en 2013.',
+    offlineAvailable: true
   }
 };
 
@@ -337,7 +435,7 @@ const App = () => {
       question: "Qui a peint 'La Nuit Étoilée' ?",
       options: ["Vincent van Gogh", "Claude Monet", "Pablo Picasso", "Salvador Dalí"],
       correctAnswer: 0,
-      artwork: 'QR001'
+      artwork: 'QR006'
     },
     {
       id: 2,
@@ -907,9 +1005,14 @@ const App = () => {
       <div className="bg-gradient-to-r from-amber-700 via-orange-600 to-red-700 rounded-2xl p-6 text-white shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
           {/* Logo MCN stylisé */}
-          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30">
-            <div className="text-3xl">🏛️</div>
-          </div>
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30 overflow-hidden">
+         <img
+            src="/musee_mcn/images/Logo.png"
+            alt="Logo MCN"
+            className="w-full h-full object-contain"
+          />
+        </div>
+      
           <div className="flex-1">
             <h1 className="text-2xl font-bold">{t.appName}</h1>
             <p className="text-xs text-white/80">Dakar, Sénégal</p>
@@ -1697,7 +1800,14 @@ const MemoryGameView = () => (
 
       {/* Logo et version */}
       <div className="bg-gradient-to-r from-amber-700 via-orange-600 to-red-700 rounded-2xl p-8 text-white text-center mb-6 shadow-xl">
-        <div className="text-6xl mb-4">🏛️</div>
+       <div className="mb-4 flex justify-center">
+          <img
+            src="/musee_mcn/images/Logo.png"
+            alt="Logo MCN"
+            className="w-20 h-20 object-contain"
+          />
+       </div>
+
         <h2 className="text-2xl font-bold mb-2">{t.appName}</h2>
         <p className="text-orange-200 text-sm mb-1">{t.aboutVersion} 2.0.0</p>
         <p className="text-xs text-white/70">Dakar, Sénégal</p>
