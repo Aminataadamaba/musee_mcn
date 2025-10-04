@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Camera, Home, Search, Heart, User, Play, Volume2, Share2, MapPin, X, Menu, QrCode, Globe, Clock, Info, Bell, Wifi, WifiOff, Download, CheckCircle, AlertCircle, Map, Award, ZoomIn, FileText, Moon, Sun, Star, MessageSquare, Send, ThumbsUp, Filter, Calendar, TrendingUp } from 'lucide-react';
+import { Camera, Home, Search, Heart, User, Play, Volume2, Share2, MapPin, X, Menu, QrCode, Globe, Clock, Info, Bell, Wifi, WifiOff, Download, CheckCircle, AlertCircle, Map, Award, ZoomIn, FileText, Moon, Sun, Star, MessageSquare, Send, ThumbsUp, Filter, Calendar, TrendingUp, Pause, VolumeX  } from 'lucide-react';
 
 // Traductions étendues
 const translations = {
@@ -50,7 +50,7 @@ const translations = {
     aboutTitle: 'À propos de l\'application',
     aboutVersion: 'Version',
     aboutDescription: 'Description',
-    aboutDescText: 'Musée Digital est une application innovante qui transforme votre visite au musée en une expérience interactive et enrichissante.',
+    aboutDescText: 'Musée des Civilisations Noires est une application innovante qui transforme votre visite en une expérience interactive et immersive, vous permettant de découvrir l’art, l’histoire et le patrimoine des civilisations noires.',
     aboutFeatures: 'Fonctionnalités',
     aboutContact: 'Contact',
     aboutDevelopedBy: 'Développé avec ❤️ pour l\'art et la culture',
@@ -126,7 +126,7 @@ const translations = {
     aboutTitle: 'About the app',
     aboutVersion: 'Version',
     aboutDescription: 'Description',
-    aboutDescText: 'Digital Museum is an innovative app that transforms your museum visit into an interactive and enriching experience.',
+    aboutDescText: 'The Museum of Black Civilizations is an innovative app that turns your visit into an interactive and immersive experience, allowing you to explore the art, history, and heritage of Black civilizations.',
     aboutFeatures: 'Features',
     aboutContact: 'Contact',
     aboutDevelopedBy: 'Developed with ❤️ for art and culture',
@@ -202,7 +202,7 @@ const translations = {
     aboutTitle: 'Ci mbir application bi',
     aboutVersion: 'Version',
     aboutDescription: 'Melokaan',
-    aboutDescText: 'Musée Digital dafa am teknoloji bu bees ngir defal sa gëstu ci musée ci kanam bu am njariñ.',
+    aboutDescText: 'Musée des Civilisations Noires mooy app bu bees bi, buñ tënk njàngale gi ci ay mbind mi, te di yéewal say xel ci lëf, téere ak njaaylu ci dund yi Afrik yi.',
     aboutFeatures: 'Fonctionnalités',
     aboutContact: 'Contact',
     aboutDevelopedBy: 'Defar ak ❤️ ngir art ak culture',
@@ -245,7 +245,9 @@ const artworksDatabase = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/300px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
     description: 'Cette œuvre majeure représente la vue depuis la fenêtre de la chambre de Van Gogh à l\'asile de Saint-Rémy-de-Provence. Le ciel tourbillonnant contraste avec le village paisible en contrebas.',
     audioUrl: 'https://example.com/audio/qr001.mp3',
-    videoUrl: 'https://example.com/video/qr001.mp4',
+    // videoUrl: 'https://example.com/video/qr001.mp4',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
+
     details: 'Huile sur toile, 73.7 × 92.1 cm',
     category: 'Peinture',
     period: 'Post-impressionnisme',
@@ -261,7 +263,7 @@ const artworksDatabase = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/300px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
     description: 'Portrait de Lisa Gherardini, épouse de Francesco del Giocondo. Célèbre pour son sourire énigmatique et la technique du sfumato.',
     audioUrl: 'https://example.com/audio/qr002.mp3',
-    videoUrl: 'https://example.com/video/qr002.mp4',
+     videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Huile sur panneau de peuplier, 77 × 53 cm',
     category: 'Peinture',
     period: 'Renaissance',
@@ -277,6 +279,8 @@ const artworksDatabase = {
     location: 'Salle 2 - Textiles Africains',
     image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=400&q=80',
     description: 'Tissu traditionnel Kente du Ghana, tissé à la main avec des motifs géométriques colorés. Chaque couleur et motif possède une signification symbolique.',
+    audioUrl: 'https://example.com/audio/qr002.mp3',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Coton et soie tissés, 200 × 120 cm',
     category: 'Textile',
     period: 'Art Contemporain',
@@ -291,6 +295,8 @@ const artworksDatabase = {
     location: 'Salle 3 - Masques Sacrés',
     image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80',
     description: 'Masque de la culture Dan de Côte d\'Ivoire et Liberia. Visage harmonieux aux traits fins, incarnant la beauté idéale et servant de médiation entre les humains et les esprits.',
+     audioUrl: 'https://example.com/audio/qr004.mp3',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Bois, fibres végétales, 30 × 20 cm',
     category: 'Sculpture',
     period: 'Art Traditionnel',
@@ -305,6 +311,8 @@ const artworksDatabase = {
     location: 'Salle 4 - Objets Royaux',
     image: 'https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=400&q=80',
     description: 'Trône royal du peuple Bamiléké du Cameroun, richement sculpté avec des motifs représentant des figures ancestrales, symboles de pouvoir et de légitimité.',
+    audioUrl: 'https://example.com/audio/qr005.mp3',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Bois massif sculpté, perles, 85 × 60 cm',
     category: 'Mobilier',
     period: 'Art Royal',
@@ -319,6 +327,7 @@ const artworksDatabase = {
     location: 'Salle 1 - Arts Traditionnels',
     image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&q=80',
     description: 'Masque cérémoniel traditionnel de la culture Sénoufo, utilisé lors des rituels d\'initiation. Représente les esprits ancestraux et la connexion avec le monde spirituel.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Bois sculpté, pigments naturels, 45 × 25 cm',
     category: 'Sculpture',
     period: 'Art Traditionnel',
@@ -333,6 +342,7 @@ const artworksDatabase = {
     location: 'Salle 5 - Art Sénégalais Moderne',
     image: 'https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?w=400&q=80',
     description: 'Technique traditionnelle sénégalaise de peinture sous-verre (suweer), représentant des scènes de la vie quotidienne et des figures religieuses avec des couleurs vives.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Peinture sous-verre, 50 × 40 cm',
     category: 'Peinture',
     period: 'Art Moderne',
@@ -347,6 +357,7 @@ const artworksDatabase = {
     location: 'Salle 6 - Bronzes Historiques',
     image: 'https://images.unsplash.com/photo-1567696153798-72f6a0a7b174?w=400&q=80',
     description: 'Plaque en bronze du royaume du Bénin (actuel Nigeria), représentant des guerriers ou des dignitaires de la cour royale. Chef-d\'œuvre de la métallurgie africaine.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Bronze coulé à la cire perdue, 45 × 35 cm',
     category: 'Sculpture',
     period: 'Art Ancien',
@@ -361,6 +372,7 @@ const artworksDatabase = {
     location: 'Salle 2 - Textiles Africains',
     image: 'https://images.unsplash.com/photo-1566206091558-7f218b696731?w=400&q=80',
     description: 'Tissu batik contemporain avec des motifs géométriques et symboliques africains. Technique de teinture par réserve de cire créant des motifs complexes.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Coton teint, 180 × 100 cm',
     category: 'Textile',
     period: 'Art Contemporain',
@@ -375,6 +387,7 @@ const artworksDatabase = {
     location: 'Salle 7 - Art Contemporain',
     image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400&q=80',
     description: 'Sculpture monumentale de l\'artiste sénégalais Ousmane Sow, représentant un guerrier Massaï. Mélange de tradition et de modernité dans l\'art africain.',
+    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
     details: 'Technique mixte, 220 cm',
     category: 'Sculpture',
     period: 'Art Contemporain',
@@ -422,6 +435,12 @@ const App = () => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [treasureHuntProgress, setTreasureHuntProgress] = useState(0);
+
+  // audio video
+const [audioVolume, setAudioVolume] = useState(1);
+const [isMuted, setIsMuted] = useState(false);
+const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+const [showVideoModal, setShowVideoModal] = useState(false);
 
 
   const t = translations[language];
@@ -1372,6 +1391,84 @@ const MemoryGameView = () => (
     if (!selectedArtwork) return null;
     const artworkComments = comments[selectedArtwork.id] || [];
     const similarWorks = getSimilarArtworks(selectedArtwork);
+    // Fonction Text-to-Speech pour lire la description
+    const speakDescription = () => {
+      if ('speechSynthesis' in window) {
+        // Arrêter la lecture en cours
+        if (isPlaying) {
+          window.speechSynthesis.cancel();
+          setIsPlaying(false);
+          return;
+        }
+
+        // Créer une nouvelle synthèse vocale
+        const utterance = new SpeechSynthesisUtterance();
+        
+        // Texte à lire : titre + artiste + description + anecdote
+        const textToSpeak = `
+          ${selectedArtwork.title}, 
+          par ${selectedArtwork.artist}, 
+          réalisée en ${selectedArtwork.year}. 
+          ${selectedArtwork.description}
+          Le saviez-vous ? ${selectedArtwork.anecdote}
+        `;
+        
+        utterance.text = textToSpeak;
+        utterance.lang = 'fr-FR'; // Langue française
+        utterance.rate = 0.9; // Vitesse de lecture
+        utterance.pitch = 1; // Tonalité
+        utterance.volume = audioVolume;
+
+        // Événements
+        utterance.onstart = () => {
+          setIsPlaying(true);
+          // addNotification('success', 'Lecture audio', 'Le guide audio a démarré');
+        };
+
+        utterance.onend = () => {
+          setIsPlaying(false);
+        };
+
+        utterance.onerror = () => {
+          setIsPlaying(false);
+          // addNotification('error', 'Erreur', 'Impossible de lire le guide audio');
+        };
+
+        window.speechSynthesis.speak(utterance);
+      } else {
+        addNotification('error', 'Non supporté', 'Votre navigateur ne supporte pas la synthèse vocale');
+      }
+    };
+
+      // Contrôle du volume
+      const handleVolumeChange = (e) => {
+        const newVolume = parseFloat(e.target.value);
+        setAudioVolume(newVolume);
+        
+        if (window.speechSynthesis.speaking) {
+          window.speechSynthesis.cancel();
+          setTimeout(() => speakDescription(), 100);
+        }
+      };
+
+      // Muet/Activer le son
+      const toggleMute = () => {
+        setIsMuted(!isMuted);
+        setAudioVolume(isMuted ? 1 : 0);
+      };
+
+      // Lecture vidéo (simulation)
+     // Lecture vidéo réelle
+      const handleVideoPlay = () => {
+        setShowVideoModal(true);
+        setIsVideoPlaying(true);
+        addNotification('info', 'Vidéo', 'Ouverture de la vidéo...');
+      };
+
+      const closeVideo = () => {
+        setShowVideoModal(false);
+        setIsVideoPlaying(false);
+      };
 
     return (
       <div className={`${bgClass} pb-20`}>
@@ -1433,20 +1530,56 @@ const MemoryGameView = () => (
           </div>
 
           <div className="grid grid-cols-2 gap-3">
+            {/* Contrôles Audio/Vidéo améliorés */}
+        {/* <div className="space-y-3"> */}
+          {/* Bouton Audio Guide avec Text-to-Speech */}
+          <div className={`${cardClass} rounded-xl p-2`}>
             <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              className="bg-purple-600 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-purple-700 transition"
+              onClick={speakDescription}
+              className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition ${
+                isPlaying 
+                  ? 'bg-red-600 hover:bg-red-700 text-white' 
+                  : 'bg-purple-600 hover:bg-purple-700 text-white'
+              }`}
             >
-              <Volume2 size={20} />
-              {isPlaying ? t.pauseAudio : t.audioGuide}
+              {isPlaying ? <Pause size={20} /> : <Volume2 size={20} />}
+              {isPlaying ? 'Arrêter le guide' : 'le guide audio'}
             </button>
+
+            {/* Contrôle du volume */}
+            {isPlaying && (
+              <div className="mt-3 flex items-center gap-3">
+                <button onClick={toggleMute} className="text-gray-600 dark:text-gray-400">
+                  {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                </button>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={audioVolume}
+                  onChange={handleVolumeChange}
+                  className="flex-1"
+                />
+                <span className="text-xs text-gray-500">{Math.round(audioVolume * 100)}%</span>
+              </div>
+            )}
+          </div>
+
+            {/* Bouton Vidéo */}
+            <div className={`${cardClass} rounded-xl p-2`}>
             <button
-              onClick={() => addNotification('info', 'Vidéo', 'Lecture de la vidéo...')}
-              className="bg-indigo-600 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-indigo-700 transition"
+              onClick={handleVideoPlay}
+              className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition ${
+                isVideoPlaying
+                  ? 'bg-red-600 hover:bg-red-700 text-white'
+                  : 'bg-indigo-600 hover:bg-indigo-700 text-white'
+              }`}
             >
-              <Play size={20} />
-              {t.video}
+              {isVideoPlaying ? <Pause size={20} /> : <Play size={20} />}
+              {isVideoPlaying ? 'Arrêter la vidéo' : 'Voir la vidéo'}
             </button>
+            </div>
           </div>
 
           <div className={`${cardClass} rounded-xl p-4 shadow-sm`}>
@@ -1569,10 +1702,79 @@ const MemoryGameView = () => (
             <Share2 size={20} />
             {t.share}
           </button>
+          {/* Modal Vidéo */}
+{showVideoModal && selectedArtwork && (
+  <div className="fixed inset-0 bg-black/90 z-50 flex flex-col">
+    <div className="bg-black/80 text-white p-4 flex items-center justify-between">
+      <h2 className="text-xl font-bold">📹 Vidéo - {selectedArtwork.title}</h2>
+      <button
+        onClick={closeVideo}
+        className="p-2 hover:bg-white/10 rounded-lg transition"
+      >
+        <X size={24} />
+      </button>
+    </div>
+
+    <div className="flex-1 flex items-center justify-center p-4">
+      <div className="w-full max-w-4xl">
+        {/* Vidéo YouTube (exemple) */}
+        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full rounded-lg"
+            src={`https://www.youtube.com/embed/${getYouTubeId(selectedArtwork.videoUrl)}?autoplay=1`}
+            title={selectedArtwork.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+
+        {/* OU si vous avez des vidéos en local/serveur */}
+        {/* 
+        <video
+          className="w-full rounded-lg"
+          controls
+          autoPlay
+          poster={selectedArtwork.image}
+        >
+          <source src={selectedArtwork.videoUrl} type="video/mp4" />
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+        */}
+      </div>
+    </div>
+
+    <div className="bg-black/80 text-white p-6 text-center">
+      <p className="text-gray-300 mb-4">{selectedArtwork.description}</p>
+      <button
+        onClick={closeVideo}
+        className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition"
+      >
+        Fermer la vidéo
+      </button>
+    </div>
+  </div>
+)}
         </div>
       </div>
     );
   };
+
+  // Extraire l'ID YouTube depuis une URL
+const getYouTubeId = (url) => {
+  if (!url) return 'dQw4w9WgXcQ'; // Vidéo par défaut si pas d'URL
+  const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[7].length === 11) ? match[7] : 'dQw4w9WgXcQ';
+};
+// Nettoyer la synthèse vocale
+useEffect(() => {
+  return () => {
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+    }
+  };
+}, [selectedArtwork]);
 
   // Vue Galerie/Recherche (améliorée avec filtres)
   const GalleryView = () => (
@@ -1807,7 +2009,7 @@ const MemoryGameView = () => (
       </div>
 
       {/* Logo et version */}
-      <div className="bg-gradient-to-r from-amber-700 via-orange-600 to-red-700 rounded-2xl p-8 text-white text-center mb-6 shadow-xl">
+      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white">
        <div className="mb-4 flex justify-center">
           <img
             src="/musee_mcn/images/Logo.png"
