@@ -498,18 +498,26 @@ const App = () => {
 
   // Ajouter une notification (conservée)
   const addNotification = (type, title, message) => {
-    if (!notificationsEnabled) return;
-    
-    const newNotif = {
-      id: Date.now(),
-      type,
-      title,
-      message,
-      timestamp: new Date().toLocaleTimeString(language === 'fr' ? 'fr-FR' : language === 'en' ? 'en-US' : 'fr-FR')
-    };
-    
-    setNotifications(prev => [newNotif, ...prev].slice(0, 10));
+  if (!notificationsEnabled) return;
+
+  const newNotif = {
+    id: Date.now(),
+    type,
+    title,
+    message,
+    timestamp: new Date().toLocaleTimeString(
+      language === 'fr' ? 'fr-FR' : language === 'en' ? 'en-US' : 'fr-FR'
+    )
   };
+
+  setNotifications(prev => [newNotif, ...prev].slice(0, 10));
+
+  // Supprimer automatiquement la notification après 500ms
+  setTimeout(() => {
+    setNotifications(prev => prev.filter(notif => notif.id !== newNotif.id));
+  }, 1000);
+};
+
 
   // Simuler le scan avec historique détaillé
   const simulateQRScan = (qrCode) => {
@@ -605,7 +613,7 @@ const App = () => {
 
       if (card1.artworkId === card2.artworkId) {
         setMatchedCards([...matchedCards, newFlipped[0], newFlipped[1]]);
-        addNotification('success', 'Paire trouvée !', '+20 points');
+         addNotification('success', 'Paire trouvée !', '+20 points');
         setGameScore(gameScore + 20);
         setFlippedCards([]);
       } else {
@@ -1002,7 +1010,7 @@ const App = () => {
       )}
 
       {/* Hero Section avec logo MCN */}
-      <div className="bg-gradient-to-r from-amber-700 via-orange-600 to-red-700 rounded-2xl p-6 text-white shadow-2xl">
+      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white">
         <div className="flex items-center gap-4 mb-4">
           {/* Logo MCN stylisé */}
           <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30 overflow-hidden">
@@ -1021,7 +1029,7 @@ const App = () => {
         <p className="text-white/90 mb-4 text-sm">{t.explore}</p>
         <button
           onClick={() => setScannerActive(true)}
-          className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-orange-50 transition shadow-lg"
+          className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-purple-50 transition"
         >
           <QrCode size={20} />
           {t.scanQR}
@@ -2016,7 +2024,7 @@ const MemoryGameView = () => (
         </button>
       </div>
       
-      <div className="bg-gradient-to-r from-amber-700 via-orange-600 to-red-700 rounded-2xl p-6 text-white mb-6 shadow-xl">
+      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white">
         <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-3xl mb-4">
           👤
         </div>
