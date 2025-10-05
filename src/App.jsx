@@ -1071,13 +1071,17 @@ const t = translations[language];
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white">
         <div className="flex items-center gap-4 mb-4">
           {/* Logo MCN stylisé */}
-          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30 overflow-hidden">
+          {/* <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30 overflow-hidden">
          <img
             src="/musee_mcn/images/Logo.png"
             alt="Logo MCN"
             className="w-full h-full object-contain"
           />
-        </div>
+        </div> */}
+         <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30">
+            <div className="text-4xl">🏛️</div>
+          </div>
+
       
           <div className="flex-1">
             <h1 className="text-2xl font-bold">{t.appName}</h1>
@@ -2088,11 +2092,12 @@ const MemoryGameView = () => (
       {/* Logo et version */}
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white">
        <div className="mb-4 flex justify-center">
-          <img
+          {/* <img
             src="/musee_mcn/images/Logo.png"
             alt="Logo MCN"
             className="w-20 h-20 object-contain"
-          />
+          /> */}
+           <div className="text-4xl">🏛️</div>
        </div>
 
         <h2 className="text-2xl font-bold mb-2">{t.appName}</h2>
@@ -2318,17 +2323,7 @@ const MemoryGameView = () => (
               <p className="text-orange-200 text-sm">{t.memberSince}</p>
             </div>
       
-            {!isAdmin && (
-              <div className={`${cardClass} rounded-xl shadow-sm p-4 mb-6`}>
-                <button
-                  onClick={() => setShowLoginModal(true)}
-                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2"
-                >
-                  <User size={20} />
-                  Connexion Administrateur
-                </button>
-              </div>
-            )}
+          
       
             {isAdmin && (
               <div className={`${cardClass} rounded-xl shadow-sm p-4 mb-6`}>
@@ -2462,18 +2457,16 @@ const MemoryGameView = () => (
           <span className={`${textClass}`}>{t.about}</span>
         </button>
 
-        <button 
-          onClick={() => {
-            addNotification('info', 'Déconnexion', 'À bientôt !');
-            setTimeout(() => {
-              setCurrentView('home');
-            }, 1000);
-          }}
-          className="w-full flex items-center gap-3 py-3 text-red-600"
-        >
-          <User size={20} />
-          <span>{t.logout}</span>
-        </button>
+          {!isAdmin && (
+              
+                <button
+                  onClick={() => setShowLoginModal(true)}
+                   className="w-full flex items-center gap-3 py-3 text-red-600"                >
+                  <User size={20} />
+                  Connexion
+                </button>
+            
+            )}
       </div>
     </div>
   );
