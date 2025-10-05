@@ -1,12 +1,24 @@
 import React from 'react';
+import { X } from 'lucide-react';
 
-const MemoryGameView = () => (
+const MemoryGameView = ({ 
+  theme,
+  memoryCards,
+  flippedCards,
+  matchedCards,
+  handleCardClick,
+  setCurrentGame,
+  setCurrentView 
+}) => {
+  const { bgClass, textClass } = theme;
+  
+  return (
     <div className={`${bgClass} min-h-screen p-6`}>
       <div className="flex items-center justify-between mb-6">
         <button onClick={() => { setCurrentGame(null); setCurrentView('games'); }}>
           <X size={24} />
         </button>
-        <h2 className={`text-xl font-bold ${textClass}`}>{t.memoryGame}</h2>
+        <h2 className={`text-xl font-bold ${textClass}`}>Jeu de Mémoire</h2>
         <div className="text-blue-600 font-bold">{matchedCards.length / 2}/{memoryCards.length / 2}</div>
       </div>
 
@@ -31,5 +43,6 @@ const MemoryGameView = () => (
       </div>
     </div>
   );
+};
 
 export default MemoryGameView;

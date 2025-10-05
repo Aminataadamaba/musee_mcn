@@ -1,6 +1,8 @@
 import React from 'react';
+import { Camera, X } from 'lucide-react';
 
-const ScannerView = () => (
+const ScannerView = ({ t, setScannerActive, simulateQRScan }) => {
+  return (
     <div className="fixed inset-0 bg-black z-50 flex flex-col">
       <div className="bg-black/80 text-white p-4 flex items-center justify-between">
         <h2 className="text-xl font-bold">{t.scanTitle}</h2>
@@ -46,11 +48,12 @@ const ScannerView = () => (
             onClick={() => simulateQRScan('QR003')}
             className="w-full bg-purple-600 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
           >
-            Scanner QR003 - Le Penseur
+            Scanner QR003 - Tissu Kente
           </button>
         </div>
       </div>
     </div>
   );
+};
 
 export default ScannerView;

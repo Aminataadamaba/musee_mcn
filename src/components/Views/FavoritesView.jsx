@@ -1,9 +1,17 @@
 import React from 'react';
-import { Heart } from 'lucide-react';
+import { Heart, FileText } from 'lucide-react';
 
-
-  // Vue Favoris (conservée)
-  const FavoritesView = () => (
+const FavoritesView = ({ 
+  theme,
+  t,
+  favorites,
+  exportFavorites,
+  setSelectedArtwork,
+  setCurrentView 
+}) => {
+  const { bgClass, textClass, cardClass } = theme;
+  
+  return (
     <div className={`${bgClass} p-6 pb-24`}>
       <div className="flex items-center justify-between mb-4">
         <h1 className={`text-2xl font-bold ${textClass}`}>{t.myFavorites}</h1>
@@ -55,5 +63,6 @@ import { Heart } from 'lucide-react';
       )}
     </div>
   );
+};
 
 export default FavoritesView;

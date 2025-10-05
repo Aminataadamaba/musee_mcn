@@ -1,8 +1,22 @@
 import React from 'react';
+import { QrCode, MapPin, Download, WifiOff } from 'lucide-react';
 
-
- // Vue Accueil (conservée avec logo ajouté)
-  const HomeView = () => (
+const HomeView = ({ 
+  theme,
+  t,
+  isOnline,
+  offlineContent,
+  badges,
+  artworksDatabase,
+  visitHistory,
+  favorites,
+  setScannerActive,
+  setSelectedArtwork,
+  setCurrentView 
+}) => {
+  const { bgClass, textClass, cardClass } = theme;
+  
+  return (
     <div className={`${bgClass} p-6 space-y-6`}>
       {/* Bannière de statut connexion */}
       {!isOnline && (
@@ -20,12 +34,12 @@ import React from 'react';
         <div className="flex items-center gap-4 mb-4">
           {/* Logo MCN stylisé */}
           <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30 overflow-hidden">
-         <img
-            src="/musee_mcn/images/Logo.png"
-            alt="Logo MCN"
-            className="w-full h-full object-contain"
-          />
-        </div>
+            <img
+              src="/musee_mcn/images/Logo.png"
+              alt="Logo MCN"
+              className="w-full h-full object-contain"
+            />
+          </div>
       
           <div className="flex-1">
             <h1 className="text-2xl font-bold">{t.appName}</h1>
@@ -140,5 +154,6 @@ import React from 'react';
       )}
     </div>
   );
+};
 
 export default HomeView;

@@ -1,7 +1,18 @@
 import React from 'react';
+import { X, Bell } from 'lucide-react';
 
-// Vue Panneau de Notifications (conservée)
-  const NotificationPanel = () => (
+const NotificationPanel = ({ 
+  showNotificationPanel,
+  theme,
+  t,
+  notifications,
+  setShowNotificationPanel 
+}) => {
+  const { cardClass, textClass } = theme;
+  
+  if (!showNotificationPanel) return null;
+  
+  return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-end" onClick={() => setShowNotificationPanel(false)}>
       <div className={`${cardClass} w-full max-h-[80vh] rounded-t-3xl p-6 overflow-y-auto`} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between mb-4">
@@ -34,4 +45,6 @@ import React from 'react';
       </div>
     </div>
   );
+};
+
 export default NotificationPanel;

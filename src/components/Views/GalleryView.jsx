@@ -1,8 +1,21 @@
 import React from 'react';
-import { Search } from 'lucide-react';
+import { Search, Download } from 'lucide-react';
 
-const GalleryView = ({ t, bgClass, cardClass, textClass }) => (
-   <div className={`${bgClass} p-6 pb-24`}>
+const GalleryView = ({ 
+  theme,
+  t,
+  searchQuery,
+  setSearchQuery,
+  categoryFilter,
+  setCategoryFilter,
+  filteredArtworks,
+  setSelectedArtwork,
+  setCurrentView 
+}) => {
+  const { bgClass, textClass, cardClass, borderClass } = theme;
+  
+  return (
+    <div className={`${bgClass} p-6 pb-24`}>
       <h1 className={`text-2xl font-bold mb-4 ${textClass}`}>{t.gallery}</h1>
       
       <div className="mb-4">
@@ -13,7 +26,7 @@ const GalleryView = ({ t, bgClass, cardClass, textClass }) => (
             placeholder={t.searchPlaceholder}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className={`w-full pl-10 pr-4 py-3 border-2 ${borderClass} rounded-lg focus:border-purple-500 focus:outline-none ${darkMode ? 'bg-gray-800 text-white' : 'bg-white'}`}
+            className={`w-full pl-10 pr-4 py-3 border-2 ${borderClass} rounded-lg focus:border-purple-500 focus:outline-none ${theme.darkMode ? 'bg-gray-800 text-white' : 'bg-white'}`}
           />
         </div>
         
@@ -83,6 +96,7 @@ const GalleryView = ({ t, bgClass, cardClass, textClass }) => (
         ))}
       </div>
     </div>
-);
+  );
+};
 
 export default GalleryView;

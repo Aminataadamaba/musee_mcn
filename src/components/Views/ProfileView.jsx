@@ -1,8 +1,27 @@
 import React from 'react';
-import { Bell, Globe, Moon, Sun, Map, Wifi, WifiOff, Info, User } from 'lucide-react';
+import { Bell, Globe, Map, Clock, Info, User, Wifi, WifiOff, Sun, Moon } from 'lucide-react';
 
-// Vue Profil (améliorée)
-  const ProfileView = () => (
+const ProfileView = ({ 
+  theme,
+  t,
+  language,
+  setLanguage,
+  visitHistory,
+  favorites,
+  badges,
+  offlineContent,
+  isOnline,
+  notifications,
+  notificationsEnabled,
+  darkMode,
+  setDarkMode,
+  setCurrentView,
+  setShowNotificationPanel,
+  addNotification 
+}) => {
+  const { bgClass, textClass, cardClass, borderClass } = theme;
+  
+  return (
     <div className={`${bgClass} p-6 pb-24`}>
       <div className="flex items-center justify-between mb-6">
         <h1 className={`text-2xl font-bold ${textClass}`}>{t.profile}</h1>
@@ -156,5 +175,6 @@ import { Bell, Globe, Moon, Sun, Map, Wifi, WifiOff, Info, User } from 'lucide-r
       </div>
     </div>
   );
+};
 
 export default ProfileView;
