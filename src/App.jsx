@@ -236,105 +236,225 @@ const translations = {
 // Base de données simulée des œuvres (conservée)
 const artworksDatabase = {
   
-  'QR001': {
-    id: 'QR001',
-    title: 'La Nuit Étoilée',
-    artist: 'Vincent van Gogh',
-    year: '1889',
-    location: 'Salle 2 - Art Impressionniste',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/300px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg',
-    description: 'Cette œuvre majeure représente la vue depuis la fenêtre de la chambre de Van Gogh à l\'asile de Saint-Rémy-de-Provence. Le ciel tourbillonnant contraste avec le village paisible en contrebas.',
-    audioUrl: 'https://example.com/audio/qr001.mp3',
-    // videoUrl: 'https://example.com/video/qr001.mp4',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-
-    details: 'Huile sur toile, 73.7 × 92.1 cm',
-    category: 'Peinture',
-    period: 'Post-impressionnisme',
-    anecdote: 'Van Gogh a peint cette œuvre de mémoire pendant la journée, car il n\'avait pas le droit de peindre dans sa chambre la nuit.',
-    offlineAvailable: true
-  },
-   'QR002': {
+'QR001': {
+  id: 'QR001',
+  title: 'Masque Sepik',
+  artist: 'Artisan anonyme',
+  year: 'XXe siècle',
+  location: 'Salle Arts Océaniens',
+  image: '/musee_mcn/images/1.jpg',
+  description: 'Masque cérémoniel traditionnel provenant de la région du Sepik en Papouasie-Nouvelle-Guinée. Ce masque présente une forme allongée caractéristique avec de grands yeux circulaires et un nez proéminent. Il est orné de fibres végétales naturelles (raphia) et décoré de motifs tressés traditionnels.',
+  audioUrl: 'https://example.com/audio/qr001.mp3',
+  videoUrl: 'https://example.com/video/qr001.mp4',
+  details: 'Bois sculpté, fibres végétales (raphia), pigments naturels. Hauteur approximative : 60-80 cm',
+  category: 'Arts premiers - Océanie',
+  period: 'Art traditionnel océanien',
+  anecdote: 'Les masques Sepik étaient utilisés lors de cérémonies d\'initiation et de rituels spirituels. Les grands yeux symbolisent la vigilance des esprits ancestraux qui veillent sur la communauté. Chaque élément du masque - les fibres, les couleurs, les motifs - a une signification spirituelle précise transmise de génération en génération.',
+  offlineAvailable: true
+},
+  'QR002': {
     id: 'QR002',
-    title: 'La Joconde',
-    artist: 'Léonard de Vinci',
-    year: '1503-1519',
-    location: 'Salle 1 - Renaissance',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/300px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
-    description: 'Portrait de Lisa Gherardini, épouse de Francesco del Giocondo. Célèbre pour son sourire énigmatique et la technique du sfumato.',
+    title: 'Pilons traditionnels',
+    artist: 'Artistes anonymes',
+    year: 'XXe siècle',
+    location: 'Salle Arts Africains Contemporains',
+    image: '/musee_mcn/images/7.jpg',
+    description: 'Installation monumentale de pilons traditionnels africains disposés verticalement. Ces outils quotidiens, utilisés pour piler les céréales, sont transformés en œuvre d\'art contemporaine, symbolisant le travail communautaire et la culture culinaire africaine.',
     audioUrl: 'https://example.com/audio/qr002.mp3',
-     videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Huile sur panneau de peuplier, 77 × 53 cm',
-    category: 'Peinture',
-    period: 'Renaissance',
-    anecdote: 'Le tableau a été volé en 1911 par un employé italien du Louvre et retrouvé deux ans plus tard.',
+    videoUrl: 'https://example.com/video/qr002.mp4',
+    details: 'Bois dur, hauteurs variables (150-200 cm). Installation au sol',
+    category: 'Installation - Arts premiers',
+    period: 'Art contemporain africain',
+    anecdote: 'Dans de nombreuses cultures africaines, le pilon et le mortier sont des symboles de féminité et de tradition. Le bruit rythmique du pilage servait autrefois de communication entre villages. Cette installation célèbre le passage de l\'objet utilitaire à l\'œuvre d\'art.',
     offlineAvailable: true
   },
 
   'QR003': {
     id: 'QR003',
-    title: 'Tissu Kente',
-    artist: 'Tisserands Ashanti',
-    year: 'Contemporain',
-    location: 'Salle 2 - Textiles Africains',
-    image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=400&q=80',
-    description: 'Tissu traditionnel Kente du Ghana, tissé à la main avec des motifs géométriques colorés. Chaque couleur et motif possède une signification symbolique.',
-    audioUrl: 'https://example.com/audio/qr002.mp3',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Coton et soie tissés, 200 × 120 cm',
-    category: 'Textile',
-    period: 'Art Contemporain',
-    anecdote: 'Le Kente était autrefois réservé à la royauté Ashanti. Nelson Mandela en portait lors de sa libération.',
-    offlineAvailable: true
-  },
-  'QR004': {
-    id: 'QR004',
-    title: 'Masque Dan',
-    artist: 'Artisan Dan',
+    title: 'Plat circulaire décoratif',
+    artist: 'Artisan anonyme',
     year: 'XXe siècle',
-    location: 'Salle 3 - Masques Sacrés',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80',
-    description: 'Masque de la culture Dan de Côte d\'Ivoire et Liberia. Visage harmonieux aux traits fins, incarnant la beauté idéale et servant de médiation entre les humains et les esprits.',
-     audioUrl: 'https://example.com/audio/qr004.mp3',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Bois, fibres végétales, 30 × 20 cm',
-    category: 'Sculpture',
-    period: 'Art Traditionnel',
-    anecdote: 'Les masques Dan sont classés en deux catégories : masculins (angulaires) et féminins (ovales).',
-    offlineAvailable: true
-  },
-  'QR005': {
-    id: 'QR005',
-    title: 'Trône Bamiléké',
-    artist: 'Sculpteur Bamiléké',
-    year: 'XIXe siècle',
-    location: 'Salle 4 - Objets Royaux',
-    image: 'https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=400&q=80',
-    description: 'Trône royal du peuple Bamiléké du Cameroun, richement sculpté avec des motifs représentant des figures ancestrales, symboles de pouvoir et de légitimité.',
-    audioUrl: 'https://example.com/audio/qr005.mp3',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Bois massif sculpté, perles, 85 × 60 cm',
-    category: 'Mobilier',
-    period: 'Art Royal',
-    anecdote: 'Seul le roi (Fon) et ses invités de marque pouvaient s\'asseoir sur ces trônes sacrés.',
-    offlineAvailable: false
-  },
-   'QR006': {
-    id: 'QR006',
-    title: 'Masque Sénoufo',
-    artist: 'Artisan Sénoufo',
-    year: 'XIXe siècle',
-    location: 'Salle 1 - Arts Traditionnels',
-    image: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&q=80',
-    description: 'Masque cérémoniel traditionnel de la culture Sénoufo, utilisé lors des rituels d\'initiation. Représente les esprits ancestraux et la connexion avec le monde spirituel.',
-    videoUrl: 'https://youtu.be/KqSqmk6NHT8?si=uRK9Kivb0g5acvb3', // Exemple: vidéo sur Van Gogh
-    details: 'Bois sculpté, pigments naturels, 45 × 25 cm',
-    category: 'Sculpture',
-    period: 'Art Traditionnel',
-    anecdote: 'Les masques Sénoufo sont encore utilisés aujourd\'hui dans les cérémonies du Poro, société secrète d\'initiation.',
+    location: 'Salle Arts Décoratifs Africains',
+    image: '/musee_mcn/images/8.jpg',
+    description: 'Grand plat circulaire tissé avec un motif rayonnant spectaculaire. Le centre jaune orangé contraste avec la bordure en fibres naturelles sombres, créant un effet de soleil. Technique de vannerie complexe avec des perles intégrées.',
+    audioUrl: 'https://example.com/audio/qr003.mp3',
+    videoUrl: 'https://example.com/video/qr003.mp4',
+    details: 'Fibres végétales tressées, perles de verre, diamètre approximatif : 80-100 cm',
+    category: 'Arts décoratifs - Vannerie',
+    period: 'Art traditionnel africain',
+    anecdote: 'Ce type de plat pouvait servir à la fois d\'objet utilitaire pour les cérémonies et de décoration murale. Les couleurs vives et les motifs géométriques ont souvent une signification symbolique liée à la prospérité et à l\'abondance.',
     offlineAvailable: true
   },
 
+  'QR004': {
+    id: 'QR004',
+    title: 'Collection de masques africains',
+    artist: 'Artisans divers',
+    year: 'XIXe-XXe siècle',
+    location: 'Salle Masques et Rituels',
+    image: '/musee_mcn/images/9.jpg',
+    description: 'Vitrine présentant quatre masques africains de traditions différentes. En haut : deux masques en bois avec cheveux et ornements. En bas à gauche : masque avec coiffe cylindrique. En bas à droite : masque zoomorphe blanc évoquant un crocodile ou un oiseau.',
+    audioUrl: 'https://example.com/audio/qr004.mp3',
+    videoUrl: 'https://example.com/video/qr004.mp4',
+    details: 'Bois sculpté, pigments naturels, fibres végétales, cauris. Hauteurs variables',
+    category: 'Arts premiers - Masques',
+    period: 'Art traditionnel africain',
+    anecdote: 'Chaque masque appartenait à une société secrète ou à un rite initiatique spécifique. Les masques n\'étaient portés que lors d\'occasions sacrées et leur pouvoir spirituel était considéré comme très puissant. Le porteur du masque devenait l\'incarnation de l\'esprit représenté.',
+    offlineAvailable: true
+  },
+
+  'QR005': {
+    id: 'QR005',
+    title: 'Objet cérémoniel suspendu',
+    artist: 'Artisan anonyme',
+    year: 'XXe siècle',
+    location: 'Salle Objets Rituels',
+    image: '/musee_mcn/images/10.jpg',
+    description: 'Objet rituel allongé suspendu verticalement, composé de fibres tressées et de tissus. Les tons naturels brun-beige et la texture patinée témoignent de son ancienneté et de son usage cérémoniel.',
+    audioUrl: 'https://example.com/audio/qr005.mp3',
+    videoUrl: 'https://example.com/video/qr005.mp4',
+    details: 'Fibres végétales, tissus, cordes. Longueur approximative : 100-150 cm',
+    category: 'Arts premiers - Objets rituels',
+    period: 'Art traditionnel',
+    anecdote: 'Ce type d\'objet était souvent suspendu dans les lieux sacrés ou lors de cérémonies importantes. Les matériaux naturels et leur dégradation progressive faisaient partie du cycle spirituel de l\'objet.',
+    offlineAvailable: true
+  },
+
+  'QR006': {
+    id: 'QR006',
+    title: 'Masque Kuba-Biombo',
+    artist: 'Artisan Kuba',
+    year: 'XXe siècle',
+    location: 'Salle Arts du Congo',
+    image: '/musee_mcn/images/11.jpg',
+    description: 'Masque Kuba impressionnant de la région du Congo, caractérisé par son visage stylisé avec des yeux globuleux, un large nez et une bouche expressive. La coiffe cylindrique stratifiée et les décorations latérales sont typiques du style Kuba.',
+    audioUrl: 'https://example.com/audio/qr006.mp3',
+    videoUrl: 'https://example.com/video/qr006.mp4',
+    details: 'Bois sculpté, pigments naturels (noir, blanc, ocre). Hauteur approximative : 40-50 cm',
+    category: 'Arts premiers - Masques Kuba',
+    period: 'Art traditionnel congolais',
+    anecdote: 'Les masques Kuba étaient portés lors des cérémonies d\'initiation et des funérailles royales. Le royaume Kuba était réputé pour la sophistication de ses arts et son système politique complexe. Chaque élément du masque a une signification précise dans la cosmologie Kuba.',
+    offlineAvailable: true
+  },
+
+  'QR007': {
+    id: 'QR007',
+    title: 'Femmes au Pouvoir',
+    artist: 'Installation collective',
+    year: '2020-2024',
+    location: 'Salle Femmes Africaines Influentes',
+    image: '/musee_mcn/images/12.jpg',
+    description: 'Installation multimédia rendant hommage aux femmes africaines influentes, notamment Ameenah Gurib-Fakim, présidente de la République de Maurice (1959-). Projection vidéo présentant des portraits et des moments clés de femmes leaders africaines.',
+    audioUrl: 'https://example.com/audio/qr007.mp3',
+    videoUrl: 'https://example.com/video/qr007.mp4',
+    details: 'Installation vidéo, projections multiples, dimension variable',
+    category: 'Art contemporain - Installation multimédia',
+    period: 'XXIe siècle',
+    anecdote: 'Ameenah Gurib-Fakim est une scientifique de renommée internationale et a été la première femme présidente de Maurice. Cette installation met en lumière le rôle souvent méconnu des femmes dans l\'histoire politique et sociale africaine.',
+    offlineAvailable: true
+  },
+
+  'QR008': {
+    id: 'QR008',
+    title: 'Paravent décoratif sculpté',
+    artist: 'Artiste contemporain africain',
+    year: 'XXe-XXIe siècle',
+    location: 'Salle Art Décoratif Contemporain',
+    image: '/musee_mcn/images/13.jpg',
+    description: 'Paravent monumental à quatre panneaux richement décoré de motifs géométriques et symboliques gravés. Les motifs circulaires, rectangulaires et spirales créent un vocabulaire visuel complexe inspiré des traditions africaines.',
+    audioUrl: 'https://example.com/audio/qr008.mp3',
+    videoUrl: 'https://example.com/video/qr008.mp4',
+    details: 'Bois sculpté et peint, quatre panneaux articulés. Hauteur approximative : 200 cm',
+    category: 'Art décoratif contemporain',
+    period: 'Art contemporain africain',
+    anecdote: 'Ce paravent fusionne l\'artisanat traditionnel avec le design contemporain. Les motifs gravés rappellent les symboles Adinkra du Ghana et les cosmogrammes Kongo, créant un dialogue entre différentes traditions africaines.',
+    offlineAvailable: true
+  },
+
+  'QR009': {
+    id: 'QR009',
+    title: 'Série photographique - Rituels à la lanterne',
+    artist: 'Photographe contemporain',
+    year: '2010-2020',
+    location: 'Salle Photographie Africaine',
+    image: '/musee_mcn/images/4.jpg',
+    description: 'Série de quatre photographies documentant des rituels nocturnes africains éclairés à la lanterne. Les portraits capturent l\'intensité spirituelle et la dimension intime des cérémonies traditionnelles.',
+    audioUrl: 'https://example.com/audio/qr009.mp3',
+    videoUrl: 'https://example.com/video/qr009.mp4',
+    details: 'Photographies encadrées, dimensions variables. Tirage limité',
+    category: 'Photographie contemporaine',
+    period: 'XXIe siècle',
+    anecdote: 'Ces photographies témoignent de la persistance des pratiques rituelles dans l\'Afrique contemporaine. L\'éclairage à la lanterne crée une atmosphère intime et rappelle les veillées traditionnelles où se transmettent les savoirs ancestraux.',
+    offlineAvailable: true
+  },
+
+  'QR0010': {
+    id: 'QR0010',
+    title: 'Mur floral monumental',
+    artist: 'Artiste contemporain',
+    year: '2020-2024',
+    location: 'Salle Art Contemporain',
+    image: '/musee_mcn/images/5.jpg',
+    description: 'Installation murale monumentale composée de centaines de fleurs en tissu coloré suspendues verticalement. La partie supérieure forme une frise multicolore éclatante tandis que les éléments suspendus créent un rideau végétal abstrait.',
+    audioUrl: 'https://example.com/audio/qr0010.mp3',
+    videoUrl: 'https://example.com/video/qr0010.mp4',
+    details: 'Tissu, fibres, armature métallique. Dimensions : environ 8m x 4m',
+    category: 'Installation contemporaine',
+    period: 'Art contemporain africain',
+    anecdote: 'Cette œuvre célèbre la biodiversité africaine et la tradition textile du continent. Chaque fleur est confectionnée à la main, faisant de cette installation un hommage au savoir-faire artisanal et à la patience créative.',
+    offlineAvailable: true
+  },
+
+  'QR0011': {
+    id: 'QR0011',
+    title: 'Jardin de coton',
+    artist: 'Artiste contemporain',
+    year: '2020-2024',
+    location: 'Salle Art et Mémoire',
+    image: '/musee_mcn/images/6.jpg',
+    description: 'Installation poétique composée de tiges de coton naturel montées sur des supports métalliques. Cette œuvre évoque à la fois la beauté du coton et l\'histoire complexe de sa culture en Afrique.',
+    audioUrl: 'https://example.com/audio/qr0011.mp3',
+    videoUrl: 'https://example.com/video/qr0011.mp4',
+    details: 'Coton naturel, tiges métalliques, socle. Dimensions variables',
+    category: 'Installation contemporaine',
+    period: 'Art contemporain africain',
+    anecdote: 'Le coton a joué un rôle majeur dans l\'histoire économique africaine. Cette installation invite à réfléchir sur la beauté naturelle de la plante tout en rappelant les mémoires douloureuses liées à son exploitation durant l\'époque coloniale et l\'esclavage.',
+    offlineAvailable: true
+  },
+
+  'QR0012': {
+    id: 'QR0012',
+    title: 'Sculptures métalliques jumelles',
+    artist: 'Artiste contemporain',
+    year: '2020-2024',
+    location: 'Salle Sculpture Contemporaine',
+    image: '/musee_mcn/images/3.jpg',
+    description: 'Deux sculptures métalliques stylisées représentant des figures féminines élancées. Les corps sont composés de motifs martelés et texturés, surmontés de têtes circulaires évoquant des masques. Placées devant le mur floral, elles créent un dialogue entre tradition et modernité.',
+    audioUrl: 'https://example.com/audio/qr0012.mp3',
+    videoUrl: 'https://example.com/video/qr0012.mp4',
+    details: 'Métal martelé et soudé. Hauteur approximative : 180 cm chacune',
+    category: 'Sculpture contemporaine',
+    period: 'Art contemporain africain',
+    anecdote: 'Ces sculptures fusionnent l\'esthétique des statues traditionnelles africaines avec des techniques métallurgiques modernes. La dualité des deux figures peut évoquer la gémellité, concept spirituel important dans de nombreuses cultures africaines.',
+    offlineAvailable: true
+  },
+
+  'QR0013': {
+    id: 'QR0013',
+    title: 'Mur Rose - Métier à tisser',
+    artist: 'Artiste contemporain',
+    year: '2020-2024',
+    location: 'Salle Textile et Mémoire',
+    image: '/musee_mcn/images/2.jpg',
+    description: 'Installation murale évocatrice reproduisant un mur en terre cuite rose traditionnel avec des éléments de métier à tisser intégrés. Des fragments de tissus jaunes pendent des structures en bois, symbolisant le travail textile interrompu ou la mémoire fragmentée.',
+    audioUrl: 'https://example.com/audio/qr0013.mp3',
+    videoUrl: 'https://example.com/video/qr0013.mp4',
+    details: 'Terre cuite, bois, textile, fibres. Dimensions : environ 3m x 2m',
+    category: 'Installation contemporaine',
+    period: 'Art contemporain africain',
+    anecdote: 'Cette œuvre rend hommage aux tisserands africains et à l\'architecture vernaculaire. Le rose de la terre rappelle les constructions sahéliennes, tandis que les métiers à tisser évoquent un savoir-faire transmis de génération en génération, aujourd\'hui menacé par l\'industrialisation.',
+    offlineAvailable: true
+  }
 };
 
 const App = () => {
@@ -1232,19 +1352,19 @@ const t = translations[language];
             onClick={() => simulateQRScan('QR001')}
             className="w-full bg-purple-600 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
           >
-            Scanner QR001 - La Nuit Étoilée
+            Scanner QR001 - Masque Sepik
           </button>
           <button
             onClick={() => simulateQRScan('QR002')}
             className="w-full bg-purple-600 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
           >
-            Scanner QR002 - La Joconde
+            Scanner QR002 - Pilons traditionnels
           </button>
           <button
             onClick={() => simulateQRScan('QR003')}
             className="w-full bg-purple-600 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
           >
-            Scanner QR003 - Le Penseur
+            Scanner QR003 - Plat circulaire décoratif
           </button>
         </div>
       </div>
