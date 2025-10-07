@@ -242,7 +242,7 @@ const artworksDatabase = {
   artist: 'Artisan anonyme',
   year: 'XXe siècle',
   location: 'Salle Arts Océaniens',
-  image: '/musee_mcn/images/1.jpg',
+  image: '/images/1.jpg',
   description: 'Masque cérémoniel traditionnel provenant de la région du Sepik en Papouasie-Nouvelle-Guinée. Ce masque présente une forme allongée caractéristique avec de grands yeux circulaires et un nez proéminent. Il est orné de fibres végétales naturelles (raphia) et décoré de motifs tressés traditionnels.',
   audioUrl: 'https://example.com/audio/qr001.mp3',
   videoUrl: 'https://example.com/video/qr001.mp4',
@@ -258,7 +258,7 @@ const artworksDatabase = {
     artist: 'Artistes anonymes',
     year: 'XXe siècle',
     location: 'Salle Arts Africains Contemporains',
-    image: '/musee_mcn/images/7.jpg',
+    image: '/images/7.jpg',
     description: 'Installation monumentale de pilons traditionnels africains disposés verticalement. Ces outils quotidiens, utilisés pour piler les céréales, sont transformés en œuvre d\'art contemporaine, symbolisant le travail communautaire et la culture culinaire africaine.',
     audioUrl: 'https://example.com/audio/qr002.mp3',
     videoUrl: 'https://example.com/video/qr002.mp4',
@@ -275,7 +275,7 @@ const artworksDatabase = {
     artist: 'Artisan anonyme',
     year: 'XXe siècle',
     location: 'Salle Arts Décoratifs Africains',
-    image: '/musee_mcn/images/8.jpg',
+    image: '/images/8.jpg',
     description: 'Grand plat circulaire tissé avec un motif rayonnant spectaculaire. Le centre jaune orangé contraste avec la bordure en fibres naturelles sombres, créant un effet de soleil. Technique de vannerie complexe avec des perles intégrées.',
     audioUrl: 'https://example.com/audio/qr003.mp3',
     videoUrl: 'https://example.com/video/qr003.mp4',
@@ -292,7 +292,7 @@ const artworksDatabase = {
     artist: 'Artisans divers',
     year: 'XIXe-XXe siècle',
     location: 'Salle Masques et Rituels',
-    image: '/musee_mcn/images/9.jpg',
+    image: '/images/9.jpg',
     description: 'Vitrine présentant quatre masques africains de traditions différentes. En haut : deux masques en bois avec cheveux et ornements. En bas à gauche : masque avec coiffe cylindrique. En bas à droite : masque zoomorphe blanc évoquant un crocodile ou un oiseau.',
     audioUrl: 'https://example.com/audio/qr004.mp3',
     videoUrl: 'https://example.com/video/qr004.mp4',
@@ -309,7 +309,7 @@ const artworksDatabase = {
     artist: 'Artisan anonyme',
     year: 'XXe siècle',
     location: 'Salle Objets Rituels',
-    image: '/musee_mcn/images/10.jpg',
+    image: '/images/10.jpg',
     description: 'Objet rituel allongé suspendu verticalement, composé de fibres tressées et de tissus. Les tons naturels brun-beige et la texture patinée témoignent de son ancienneté et de son usage cérémoniel.',
     audioUrl: 'https://example.com/audio/qr005.mp3',
     videoUrl: 'https://example.com/video/qr005.mp4',
@@ -326,7 +326,7 @@ const artworksDatabase = {
     artist: 'Artisan Kuba',
     year: 'XXe siècle',
     location: 'Salle Arts du Congo',
-    image: '/musee_mcn/images/11.jpg',
+    image: '/images/11.jpg',
     description: 'Masque Kuba impressionnant de la région du Congo, caractérisé par son visage stylisé avec des yeux globuleux, un large nez et une bouche expressive. La coiffe cylindrique stratifiée et les décorations latérales sont typiques du style Kuba.',
     audioUrl: 'https://example.com/audio/qr006.mp3',
     videoUrl: 'https://example.com/video/qr006.mp4',
@@ -343,7 +343,7 @@ const artworksDatabase = {
     artist: 'Installation collective',
     year: '2020-2024',
     location: 'Salle Femmes Africaines Influentes',
-    image: '/musee_mcn/images/12.jpg',
+    image: '/images/12.jpg',
     description: 'Installation multimédia rendant hommage aux femmes africaines influentes, notamment Ameenah Gurib-Fakim, présidente de la République de Maurice (1959-). Projection vidéo présentant des portraits et des moments clés de femmes leaders africaines.',
     audioUrl: 'https://example.com/audio/qr007.mp3',
     videoUrl: 'https://example.com/video/qr007.mp4',
@@ -360,7 +360,7 @@ const artworksDatabase = {
     artist: 'Artiste contemporain africain',
     year: 'XXe-XXIe siècle',
     location: 'Salle Art Décoratif Contemporain',
-    image: '/musee_mcn/images/13.jpg',
+    image: '/images/13.jpg',
     description: 'Paravent monumental à quatre panneaux richement décoré de motifs géométriques et symboliques gravés. Les motifs circulaires, rectangulaires et spirales créent un vocabulaire visuel complexe inspiré des traditions africaines.',
     audioUrl: 'https://example.com/audio/qr008.mp3',
     videoUrl: 'https://example.com/video/qr008.mp4',
@@ -377,7 +377,7 @@ const artworksDatabase = {
     artist: 'Photographe contemporain',
     year: '2010-2020',
     location: 'Salle Photographie Africaine',
-    image: '/musee_mcn/images/4.jpg',
+    image: '/images/4.jpg',
     description: 'Série de quatre photographies documentant des rituels nocturnes africains éclairés à la lanterne. Les portraits capturent l\'intensité spirituelle et la dimension intime des cérémonies traditionnelles.',
     audioUrl: 'https://example.com/audio/qr009.mp3',
     videoUrl: 'https://example.com/video/qr009.mp4',
@@ -394,7 +394,7 @@ const artworksDatabase = {
     artist: 'Artiste contemporain',
     year: '2020-2024',
     location: 'Salle Art Contemporain',
-    image: '/musee_mcn/images/5.jpg',
+    image: '/images/5.jpg',
     description: 'Installation murale monumentale composée de centaines de fleurs en tissu coloré suspendues verticalement. La partie supérieure forme une frise multicolore éclatante tandis que les éléments suspendus créent un rideau végétal abstrait.',
     audioUrl: 'https://example.com/audio/qr0010.mp3',
     videoUrl: 'https://example.com/video/qr0010.mp4',
@@ -411,7 +411,7 @@ const artworksDatabase = {
     artist: 'Artiste contemporain',
     year: '2020-2024',
     location: 'Salle Art et Mémoire',
-    image: '/musee_mcn/images/6.jpg',
+    image: '/images/6.jpg',
     description: 'Installation poétique composée de tiges de coton naturel montées sur des supports métalliques. Cette œuvre évoque à la fois la beauté du coton et l\'histoire complexe de sa culture en Afrique.',
     audioUrl: 'https://example.com/audio/qr0011.mp3',
     videoUrl: 'https://example.com/video/qr0011.mp4',
@@ -428,7 +428,7 @@ const artworksDatabase = {
     artist: 'Artiste contemporain',
     year: '2020-2024',
     location: 'Salle Sculpture Contemporaine',
-    image: '/musee_mcn/images/3.jpg',
+    image: '/images/3.jpg',
     description: 'Deux sculptures métalliques stylisées représentant des figures féminines élancées. Les corps sont composés de motifs martelés et texturés, surmontés de têtes circulaires évoquant des masques. Placées devant le mur floral, elles créent un dialogue entre tradition et modernité.',
     audioUrl: 'https://example.com/audio/qr0012.mp3',
     videoUrl: 'https://example.com/video/qr0012.mp4',
@@ -445,7 +445,7 @@ const artworksDatabase = {
     artist: 'Artiste contemporain',
     year: '2020-2024',
     location: 'Salle Textile et Mémoire',
-    image: '/musee_mcn/images/2.jpg',
+    image: '/images/2.jpg',
     description: 'Installation murale évocatrice reproduisant un mur en terre cuite rose traditionnel avec des éléments de métier à tisser intégrés. Des fragments de tissus jaunes pendent des structures en bois, symbolisant le travail textile interrompu ou la mémoire fragmentée.',
     audioUrl: 'https://example.com/audio/qr0013.mp3',
     videoUrl: 'https://example.com/video/qr0013.mp4',
@@ -1191,16 +1191,16 @@ const t = translations[language];
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white">
         <div className="flex items-center gap-4 mb-4">
           {/* Logo MCN stylisé */}
-          {/* <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30 overflow-hidden">
+          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30 overflow-hidden">
          <img
-            src="/musee_mcn/images/Logo.png"
+            src="/images/Logo.png"
             alt="Logo MCN"
             className="w-full h-full object-contain"
           />
-        </div> */}
-         <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30">
+        </div>
+         {/* <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30">
             <div className="text-4xl">🏛️</div>
-          </div>
+          </div> */}
 
       
           <div className="flex-1">
@@ -2212,12 +2212,12 @@ const MemoryGameView = () => (
       {/* Logo et version */}
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 text-white">
        <div className="mb-4 flex justify-center">
-          {/* <img
-            src="/musee_mcn/images/Logo.png"
+          <img
+            src="/images/Logo.png"
             alt="Logo MCN"
             className="w-20 h-20 object-contain"
-          /> */}
-           <div className="text-4xl">🏛️</div>
+          />
+           {/* <div className="text-4xl">🏛️</div> */}
        </div>
 
         <h2 className="text-2xl font-bold mb-2">{t.appName}</h2>
