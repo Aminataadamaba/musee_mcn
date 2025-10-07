@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Camera, Home, Search, Heart, User, Play, Volume2, Share2, MapPin, X, Menu, QrCode, Globe, Clock, Info, Bell, Wifi, WifiOff, Download, CheckCircle, AlertCircle, Map, Award, ZoomIn, FileText, Moon, Sun, Star, MessageSquare, Send, ThumbsUp, Filter, Calendar, TrendingUp, Pause, VolumeX  } from 'lucide-react';
-
+import { Html5Qrcode } from 'html5-qrcode';
 // Traductions étendues
 const translations = {
   fr: {
@@ -1318,12 +1318,65 @@ const t = translations[language];
   );
 
   // Vue Scanner QR (conservée)
-  const ScannerView = () => (
+  const ScannerView = () => {
+  const [scanning, setScanning] = useState(false);
+  const scannerRef = useRef(null);
+
+  const startScanner = async () => {
+    try {
+      const html5QrCode = new Html5Qrcode("qr-reader");
+      scannerRef.current = html5QrCode;
+
+      await html5QrCode.start(
+        { facingMode: "environment" },
+        { fps: 10, qrbox: { width: 250, height: 250 } },
+        (decodedText) => {
+          console.log("QR scanné:", decodedText);
+          stopScanner();
+          simulateQRScan(decodedText);
+        },
+        (errorMessage) => {
+          // Erreurs ignorées
+        }
+      );
+
+      setScanning(true);
+    } catch (err) {
+      console.error("Erreur caméra:", err);
+      alert("Impossible d'accéder à la caméra");
+    }
+  };
+
+  const stopScanner = async () => {
+    if (scannerRef.current) {
+      try {
+        await scannerRef.current.stop();
+        scannerRef.current.clear();
+        scannerRef.current = null;
+        setScanning(false);
+      } catch (err) {
+        console.error("Erreur arrêt:", err);
+      }
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (scannerRef.current) {
+        stopScanner();
+      }
+    };
+  }, []);
+
+  return (
     <div className="fixed inset-0 bg-black z-50 flex flex-col">
       <div className="bg-black/80 text-white p-4 flex items-center justify-between">
         <h2 className="text-xl font-bold">{t.scanTitle}</h2>
         <button
-          onClick={() => setScannerActive(false)}
+          onClick={() => {
+            stopScanner();
+            setScannerActive(false);
+          }}
           className="p-2 hover:bg-white/10 rounded-lg"
         >
           <X size={24} />
@@ -1331,20 +1384,46 @@ const t = translations[language];
       </div>
       
       <div className="flex-1 relative flex items-center justify-center">
-        <div className="w-80 h-80 border-4 border-white/50 rounded-2xl relative">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Camera size={64} className="text-white/50" />
-          </div>
+        <div className="w-full max-w-md px-4">
+          {/* Zone du scanner */}
+          <div id="qr-reader" className="rounded-2xl overflow-hidden"></div>
           
-          <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-purple-500"></div>
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-purple-500"></div>
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-purple-500"></div>
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-purple-500"></div>
+          {!scanning && (
+            <div className="w-80 h-80 mx-auto border-4 border-white/50 rounded-2xl relative">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Camera size={64} className="text-white/50" />
+              </div>
+              
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-purple-500"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-purple-500"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-purple-500"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-purple-500"></div>
+            </div>
+          )}
         </div>
       </div>
 
       <div className="bg-black/80 text-white p-6">
         <p className="text-center mb-4 text-gray-300">{t.position}</p>
+        
+        {/* Bouton Démarrer/Arrêter */}
+        {!scanning ? (
+          <button
+            onClick={startScanner}
+            className="w-full bg-green-600 py-4 rounded-lg font-semibold hover:bg-green-700 transition mb-4 flex items-center justify-center gap-2"
+          >
+            <Camera size={20} />
+            Démarrer la caméra
+          </button>
+        ) : (
+          <button
+            onClick={stopScanner}
+            className="w-full bg-red-600 py-4 rounded-lg font-semibold hover:bg-red-700 transition mb-4 flex items-center justify-center gap-2"
+          >
+            <X size={20} />
+            Arrêter la caméra
+          </button>
+        )}
         
         <div className="space-y-2">
           <p className="text-xs text-gray-400 text-center mb-2">{t.demo}</p>
@@ -1370,6 +1449,59 @@ const t = translations[language];
       </div>
     </div>
   );
+};
+  // const ScannerView = () => (
+  //   <div className="fixed inset-0 bg-black z-50 flex flex-col">
+  //     <div className="bg-black/80 text-white p-4 flex items-center justify-between">
+  //       <h2 className="text-xl font-bold">{t.scanTitle}</h2>
+  //       <button
+  //         onClick={() => setScannerActive(false)}
+  //         className="p-2 hover:bg-white/10 rounded-lg"
+  //       >
+  //         <X size={24} />
+  //       </button>
+  //     </div>
+      
+  //     <div className="flex-1 relative flex items-center justify-center">
+  //       <div className="w-80 h-80 border-4 border-white/50 rounded-2xl relative">
+  //         <div className="absolute inset-0 flex items-center justify-center">
+  //           <Camera size={64} className="text-white/50" />
+  //         </div>
+          
+  //         <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-purple-500"></div>
+  //         <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-purple-500"></div>
+  //         <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-purple-500"></div>
+  //         <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-purple-500"></div>
+  //       </div>
+  //     </div>
+
+  //     <div className="bg-black/80 text-white p-6">
+  //       <p className="text-center mb-4 text-gray-300">{t.position}</p>
+        
+  //       <div className="space-y-2">
+  //         <p className="text-xs text-gray-400 text-center mb-2">{t.demo}</p>
+  //         <button
+  //           onClick={() => simulateQRScan('QR001')}
+  //           className="w-full bg-purple-600 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
+  //         >
+  //           Scanner QR001 - Masque Sepik
+  //         </button>
+  //         <button
+  //           onClick={() => simulateQRScan('QR002')}
+  //           className="w-full bg-purple-600 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
+  //         >
+  //           Scanner QR002 - Pilons traditionnels
+  //         </button>
+  //         <button
+  //           onClick={() => simulateQRScan('QR003')}
+  //           className="w-full bg-purple-600 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
+  //         >
+  //           Scanner QR003 - Plat circulaire décoratif
+  //         </button>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
    const GamesView = () => (
     <div className="bg-[#d9c7a1] p-6 pb-24">
       
